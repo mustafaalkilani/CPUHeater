@@ -9,11 +9,11 @@ def monitor_cpu_tem(interval=0):
     while True:
         temp = psutil.sensors_temperatures().get('coretemp', [])[0].current
         print(temp)
-        print(f"Current temperature: {temp}°C")
+        print(f'Current temperature: {temp}°C')
         time.sleep(interval)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     cpu_count = os.cpu_count()
     processes = []
 
@@ -27,10 +27,10 @@ if __name__ == "__main__":
         try:
             monitor_cpu_tem()
         except KeyboardInterrupt:
-            print("Keyboard interrupt caught, but continuing execution.")
+            print('Keyboard interrupt caught, but continuing execution.')
             monitor_cpu_tem()
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f'An error occurred: {e}')
             break
 
-print("CPU load test finished.")
+print('CPU load test finished.')
